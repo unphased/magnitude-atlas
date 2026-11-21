@@ -1,14 +1,50 @@
-name: Python prototype tests
+name: Magnitude Atlas CI
+
 on:
   push:
   pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
 jobs:
-  unittest:
+  test-and-demo:
     runs-on: ubuntu-latest
+    timeout-minutes: 5
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-      - name: Run original prototype tests
+      - name: Compile Python source
+        run: python -m compileall -q prototype
+      - name: Run unit tests
         run: python -m unittest discover -s prototype/tests -v
+      - name: Validate JSON datasets
+        run: |
+          python -m json.tool prototype/data/catalog.json > /dev/null
+          python -m json.tool prototype/data/relations.json > /dev/null
+          python -m json.tool prototype/data/derived.json > /dev/null
+          if test -f research/v0.3/magnitude_atlas_v03_manifest.json; then
+            python -m json.tool research/v0.3/magnitude_atlas_v03_manifest.json > /dev/null
+          fi
+      - name: Run CLI and save outputs
+        run: |
+          mkdir -p ci-output
+          python prototype/atlas.py catalog > ci-output/catalog.txt
+          python prototype/atlas.py f 3 2 > ci-output/f3-2.json
+          python prototype/atlas.py f omega 5 > ci-output/fomega-5.json
+          python prototype/atlas.py export > ci-output/export.json
+          echo "F3(2):"
+          cat ci-output/f3-2.json
+          echo "Fomega(5):"
+          cat ci-output/fomega-5.json
+      - name: Upload reproducible CLI outputs
+        uses: actions/upload-artifact@v4
+        with:
+          name: atlas-cli-output
+          path: ci-output/
+          retention-days: 30
