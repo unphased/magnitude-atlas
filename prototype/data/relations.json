@@ -1,0 +1,10 @@
+{
+  "schema_version": "0.1",
+  "relations": [
+    {"left":"f3-2", "operator":"<", "right":"deck-52", "status":"proved_bound", "proof":"F3(2)=2048 and 52!>2048."},
+    {"left":"deck-52", "operator":"<", "right":"googol", "status":"proved_bound", "proof":"52! has 68 decimal digits; 10^100 has 101."},
+    {"left":"googol", "operator":"<", "right":"f3-3", "status":"proved_bound", "proof":"F3(3) has exactly 121,210,695 decimal digits; 10^100 has 101."},
+    {"left":"f3-3", "operator":"<", "right":"googolplex", "status":"proved_bound", "proof":"log10(F3(3))<10^9, whereas log10(googolplex)=10^100."},
+    {"left":"googolplex", "operator":"<", "right":"f3-5", "status":"proved_bound", "proof":"For x_j=g^j(5), g(x)=x*2^x: x2=160*2^160>10^50; x3>2^(10^50)>10^(10^49); hence x4>2^x3>10^(10^100), and x5>x4."}
+  ]
+}
