@@ -1,0 +1,21 @@
+{
+  "schema_version": "0.1",
+  "fg_hierarchy_convention": "F0(n)=n+1; F_(alpha+1)(n)=F_alpha iterated n times starting at n; F_omega(n)=F_n(n)",
+  "entries": [
+    {"id":"deck-52", "label":"52-card deck permutations", "kind":"combinatorics", "expression":"52!", "claims":[{"status":"exact", "type":"integer", "value":"80658175170943878571660636856403766975289505440883277824000000000000", "method":"factorial(52)"}]},
+    {"id":"googol", "label":"Googol", "kind":"landmark", "expression":"10^100", "claims":[{"status":"exact", "type":"symbolic", "value":"10^100"}]},
+    {"id":"googolplex", "label":"Googolplex", "kind":"landmark", "expression":"10^(10^100)", "claims":[{"status":"exact", "type":"symbolic", "value":"10^(10^100)"}]},
+    {"id":"q-two-arrow-q", "label":"Googol-height tower of googols", "kind":"hyperoperation", "expression":"Q ↑↑ Q; Q=10^100", "claims":[{"status":"exact", "type":"symbolic", "value":"Q↑↑Q"}]},
+    {"id":"f3-2", "label":"F_3(2)", "kind":"fgh", "expression":"F_3(2)", "claims":[{"status":"exact", "type":"integer", "value":"2048", "method":"F2(F2(2))=F2(8)=2048"}]},
+    {"id":"f3-3", "label":"F_3(3)", "kind":"fgh", "expression":"F_3(3)", "claims":[{"status":"exact", "type":"symbolic", "value":"402653184*2^402653184"},{"status":"exact", "type":"decimal_digits", "value":"121210695", "method":"floor(log10(402653184)+402653184*log10(2))+1"}]},
+    {"id":"f3-5", "label":"F_3(5)", "kind":"fgh", "expression":"F_3(5)", "claims":[{"status":"exact", "type":"symbolic", "value":"iterate(x->x*2^x, start=5, count=5)"}]},
+    {"id":"f3-50", "label":"F_3(50)", "kind":"fgh", "expression":"F_3(50)", "claims":[{"status":"exact", "type":"symbolic", "value":"iterate(x->x*2^x, start=50, count=50)"}]},
+    {"id":"f4-2", "label":"F_4(2)", "kind":"fgh", "expression":"F_4(2)", "claims":[{"status":"exact", "type":"symbolic", "value":"F_3(2048)", "method":"F3(F3(2)) and F3(2)=2048"}]},
+    {"id":"fomega-5", "label":"F_omega(5)", "kind":"fgh", "expression":"F_omega(5)", "claims":[{"status":"exact", "type":"symbolic", "value":"F_5(5)", "method":"omega[n]=n"}]},
+    {"id":"andromeda", "label":"Distance to Andromeda", "kind":"physical", "expression":"2.5e6 light_year", "claims":[{"status":"approximate", "type":"distance", "value":2500000, "unit":"light_year", "source":"https://www.nasa.gov/universe/galaxies/andromeda-galaxy/"}]},
+    {"id":"proxima", "label":"Distance to Proxima Centauri", "kind":"physical", "expression":"4.25 light_year", "claims":[{"status":"approximate", "type":"distance", "value":4.25, "unit":"light_year", "source":"https://imagine.gsfc.nasa.gov/features/cosmic/nearest_star_info.html"}]},
+    {"id":"observable-universe", "label":"Observable universe diameter", "kind":"physical", "expression":"92e9 light_year", "claims":[{"status":"approximate", "type":"distance", "value":92000000000, "unit":"light_year", "source":"https://www.nasa.gov/science-research/astrophysics/how-big-is-space-we-asked-a-nasa-expert-episode-61/"}]},
+    {"id":"planck-length", "label":"Planck length", "kind":"physical", "expression":"~1.616255e-35 meter", "claims":[{"status":"approximate", "type":"distance", "value":1.616255e-35, "unit":"meter", "note":"A natural unit, not an established minimum distance."}]},
+    {"id":"earth-sun-au", "label":"One astronomical unit", "kind":"physical", "expression":"149597870700 meters", "claims":[{"status":"exact", "type":"distance", "value":"149597870700", "unit":"meter", "note":"IAU-defined exact unit; approximates mean Earth-Sun distance."}]}
+  ]
+}
