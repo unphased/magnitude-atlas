@@ -1,0 +1,132 @@
+{
+  "source_catalog_version": "0.1",
+  "derived": [
+    {
+      "definition": "F_2(3)",
+      "expansion": "iterate(F_1, start=3, count=3)",
+      "status": "exact",
+      "value": "24",
+      "bits": 5
+    },
+    {
+      "definition": "F_3(2)",
+      "expansion": "iterate(F_2, start=2, count=2)",
+      "status": "exact",
+      "value": "2048",
+      "bits": 12
+    },
+    {
+      "definition": "F_3(3)",
+      "expansion": "iterate(F_2, start=3, count=3)",
+      "status": "symbolic",
+      "note": "Exact evaluation exceeds configured budget",
+      "log_estimate": {
+        "status": "heuristic",
+        "measure": "L_3(F_3(3))",
+        "log_base": 10,
+        "iterations": 3,
+        "residue_estimate": "0.90760164057825",
+        "method": "first-step exact + asymptotic logarithmic cancellation",
+        "warning": "Not an error-certified interval, nor the mantissa of F_3(n)."
+      }
+    },
+    {
+      "definition": "F_3(5)",
+      "expansion": "iterate(F_2, start=5, count=5)",
+      "status": "symbolic",
+      "note": "Exact evaluation exceeds configured budget",
+      "log_estimate": {
+        "status": "heuristic",
+        "measure": "L_5(F_3(5))",
+        "log_base": 10,
+        "iterations": 5,
+        "residue_estimate": "1.69764363523211",
+        "method": "first-step exact + asymptotic logarithmic cancellation",
+        "warning": "Not an error-certified interval, nor the mantissa of F_3(n)."
+      }
+    },
+    {
+      "definition": "F_3(6)",
+      "expansion": "iterate(F_2, start=6, count=6)",
+      "status": "symbolic",
+      "note": "Exact evaluation exceeds configured budget",
+      "log_estimate": {
+        "status": "heuristic",
+        "measure": "L_6(F_3(6))",
+        "log_base": 10,
+        "iterations": 6,
+        "residue_estimate": "2.07062315725787",
+        "method": "first-step exact + asymptotic logarithmic cancellation",
+        "warning": "Not an error-certified interval, nor the mantissa of F_3(n)."
+      }
+    },
+    {
+      "definition": "F_3(50)",
+      "expansion": "iterate(F_2, start=50, count=50)",
+      "status": "symbolic",
+      "note": "Exact evaluation exceeds configured budget",
+      "log_estimate": {
+        "status": "heuristic",
+        "measure": "L_50(F_3(50))",
+        "log_base": 10,
+        "iterations": 50,
+        "residue_estimate": "16.22907955988075",
+        "method": "first-step exact + asymptotic logarithmic cancellation",
+        "warning": "Not an error-certified interval, nor the mantissa of F_3(n)."
+      }
+    },
+    {
+      "definition": "F_4(2)",
+      "expansion": "iterate(F_3, start=2, count=2)",
+      "status": "symbolic",
+      "note": "Exact evaluation exceeds configured budget",
+      "reduction": "F_3(2048)",
+      "log_estimate": {
+        "status": "heuristic",
+        "measure": "L_2048(F_3(2048))",
+        "log_base": 10,
+        "iterations": 2048,
+        "residue_estimate": "619.29937084448296",
+        "method": "first-step exact + asymptotic logarithmic cancellation",
+        "warning": "Not an error-certified interval, nor the mantissa of F_3(n)."
+      }
+    }
+  ],
+  "bounds": [
+    {
+      "left": "f3-2",
+      "operator": "<",
+      "right": "deck-52",
+      "status": "proved_bound",
+      "proof": "F3(2)=2048 and 52!>2048."
+    },
+    {
+      "left": "deck-52",
+      "operator": "<",
+      "right": "googol",
+      "status": "proved_bound",
+      "proof": "52! has 68 decimal digits; 10^100 has 101."
+    },
+    {
+      "left": "googol",
+      "operator": "<",
+      "right": "f3-3",
+      "status": "proved_bound",
+      "proof": "F3(3) has exactly 121,210,695 decimal digits; 10^100 has 101."
+    },
+    {
+      "left": "f3-3",
+      "operator": "<",
+      "right": "googolplex",
+      "status": "proved_bound",
+      "proof": "log10(F3(3))<10^9, whereas log10(googolplex)=10^100."
+    },
+    {
+      "left": "googolplex",
+      "operator": "<",
+      "right": "f3-5",
+      "status": "proved_bound",
+      "proof": "For x_j=g^j(5), g(x)=x*2^x: x2=160*2^160>10^50; x3>2^(10^50)>10^(10^49); hence x4>2^x3>10^(10^100), and x5>x4."
+    }
+  ]
+}
