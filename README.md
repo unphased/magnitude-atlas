@@ -23,3 +23,11 @@ The code is intentionally *not* described as a v0.3 engine. In particular, highe
 ## Workflow
 
 Edit and curate research in the workbook. Commit snapshots of the workbook and its manifest together when appropriate. Make code changes through Git commits and tests; do not regenerate or overwrite the workbook from v0.1 `export`. Research statements must retain provenance and evidence status. See [`docs/PROJECT_CONTEXT.md`](docs/PROJECT_CONTEXT.md).
+
+## GitHub execution and CI
+
+The [Magnitude Atlas CI workflow](../../actions/workflows/tests.yml) runs automatically on pushes and pull requests. To run it on demand, open **Actions → Magnitude Atlas CI → Run workflow** (choose `main`). The job compiles Python, runs the five prototype tests, validates JSON, and runs the CLI.
+
+Click a workflow run → **test-and-demo** to see the individual steps and stdout. Under **Artifacts**, download `atlas-cli-output` to inspect `catalog.txt`, `f3-2.json`, `fomega-5.json`, and `export.json`. These are reproducible example executions, not formal proof certificates.
+
+The workflow uses only the standard library and does not modify the research workbook.
