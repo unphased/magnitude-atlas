@@ -26,7 +26,7 @@ Edit and curate research in the workbook. Commit snapshots of the workbook and i
 
 ## GitHub execution and CI
 
-The [Magnitude Atlas CI workflow](../../actions/workflows/tests.yml) runs automatically on pushes and pull requests. To run it on demand, open **Actions → Magnitude Atlas CI → Run workflow** (choose `main`). The job compiles Python, runs the five prototype tests, validates JSON, and runs the CLI.
+The [Magnitude Atlas CI workflow](https://github.com/unphased/magnitude-atlas/actions/workflows/tests.yml) runs automatically on pushes and pull requests. To run it on demand, open **Actions → Magnitude Atlas CI → Run workflow** (choose `main`). The job compiles Python, runs the five prototype tests, validates JSON, and runs the CLI.
 
 Click a workflow run → **test-and-demo** to see the individual steps and stdout. Under **Artifacts**, download `atlas-cli-output` to inspect `catalog.txt`, `f3-2.json`, `fomega-5.json`, and `export.json`. These are reproducible example executions, not formal proof certificates.
 
